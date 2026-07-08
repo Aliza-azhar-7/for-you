@@ -1,0 +1,400 @@
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    font-family:'Poppins',sans-serif;
+
+    background:linear-gradient(135deg,#ffe4ef,#fff6fb);
+
+    position:relative;
+}
+
+/* =========================
+   DREAMY BACKGROUND
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:0;
+}
+
+.background::before,
+.background::after{
+    content:"";
+    position:absolute;
+    width:550px;
+    height:550px;
+    border-radius:50%;
+    filter:blur(70px);
+    opacity:.35;
+}
+
+.background::before{
+    background:#ffd3e6;
+    top:-200px;
+    left:-150px;
+}
+
+.background::after{
+    background:#ffe7f2;
+    bottom:-220px;
+    right:-180px;
+}
+
+/* =========================
+   FLOATING HEARTS
+========================= */
+
+.heart{
+    position:absolute;
+    width:26px;
+    height:26px;
+    background:#ff7ca8;
+    transform:rotate(-45deg);
+    animation:floatUp linear infinite;
+    opacity:.45;
+}
+
+.heart::before,
+.heart::after{
+    content:"";
+    position:absolute;
+    width:26px;
+    height:26px;
+    border-radius:50%;
+    background:#ff7ca8;
+}
+
+.heart::before{
+    top:-13px;
+    left:0;
+}
+
+.heart::after{
+    left:13px;
+    top:0;
+}
+
+.h1{left:8%;bottom:-60px;animation-duration:11s;}
+.h2{left:22%;bottom:-120px;animation-duration:9s;animation-delay:2s;}
+.h3{left:46%;bottom:-90px;animation-duration:13s;}
+.h4{left:68%;bottom:-150px;animation-duration:12s;animation-delay:4s;}
+.h5{left:88%;bottom:-100px;animation-duration:10s;animation-delay:1s;}
+
+/* =========================
+   FLOATING BOWS
+========================= */
+.bow {
+    position: absolute;
+    font-size: 28px;
+    opacity: .7;
+    /* Changed to a separate animation for bows */
+    animation: floatUpBows 16s linear infinite;
+}
+
+.b1{left: 15%; bottom: -120px;}
+.b2{left: 58%; bottom: -170px; animation-delay: 5s;}
+.b3{left: 82%; bottom: -130px; animation-delay: 8s;}
+
+/* =========================
+   ANIMATIONS
+========================= */
+/* Keep this one just for the hearts */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(-45deg);
+        opacity: 0;
+    }
+    20% {
+        opacity: .7;
+    }
+    100% {
+        transform: translateY(-120vh) rotate(315deg);
+        opacity: 0;
+    }
+}
+
+/* New animation so the bows float straight up without tilting -45 degrees */
+@keyframes floatUpBows {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    20% {
+        opacity: .7;
+    }
+    100% {
+        transform: translateY(-120vh);
+        opacity: 0;
+    }
+}
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.container{
+    position:relative;
+    z-index:2;
+    text-align:center;
+}
+
+.tag{
+    display:inline-block;
+    background:white;
+    color:#ff5d97;
+    padding:16px 34px;
+    border-radius:50px;
+    font-size:24px;
+    font-weight:600;
+    margin-bottom:40px;
+    box-shadow:0 12px 30px rgba(255,140,180,.25);
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes floatUp{
+
+    0%{
+        transform:translateY(0) rotate(-45deg);
+        opacity:0;
+    }
+
+    20%{
+        opacity:.7;
+    }
+
+    100%{
+        transform:translateY(-120vh) rotate(315deg);
+        opacity:0;
+    }
+}
+/* =========================
+   ELEGANT ENVELOPE
+========================= */
+
+.envelope{
+    position:relative;
+    width:340px;
+    height:220px;
+    margin:auto;
+    cursor:pointer;
+    transition:0.4s ease;
+}
+
+.envelope:hover{
+    transform:translateY(-8px) scale(1.03);
+}
+
+/* Envelope Body */
+.body{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:170px;
+    background:#ffc8da;
+    border-radius:0 0 18px 18px;
+    box-shadow:0 20px 40px rgba(255,150,190,.35);
+    overflow:hidden;
+}
+
+/* Decorative floral border */
+.body::before{
+    content:"🌸 🌿 🌸 🌷 🌸";
+    position:absolute;
+    top:10px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:20px;
+    white-space:nowrap;
+}
+
+.body::after{
+    content:"🌷 🌸 🌿 🌸 🌷";
+    position:absolute;
+    bottom:10px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:20px;
+    white-space:nowrap;
+}
+
+/* Flap */
+.flap{
+    position:absolute;
+    width:100%;
+    height:120px;
+    background:#ffb3ca;
+    clip-path:polygon(0 0,100% 0,50% 100%);
+    z-index:3;
+}
+
+/* Ribbon */
+.envelope::before{
+    content:"";
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:24px;
+    height:170px;
+    background:#f8a5c2;
+    bottom:0;
+    z-index:4;
+}
+
+.envelope::after{
+    content:"🎀";
+    position:absolute;
+    left:50%;
+    top:78px;
+    transform:translateX(-50%);
+    font-size:42px;
+    z-index:5;
+}
+
+/* Wax Seal */
+.seal{
+    position:absolute;
+    left:50%;
+    top:118px;
+    transform:translateX(-50%);
+    width:64px;
+    height:64px;
+    background:#fff;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    z-index:6;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+}
+
+/* Hide the letter until the envelope is opened */
+
+.letter{
+    display:none;
+}
+/* ==========================
+LETTER POPUP
+========================== */
+
+.letter{
+
+    position:fixed;
+
+    inset:0;
+
+    display:none;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:rgba(255,240,247,.65);
+
+    backdrop-filter:blur(8px);
+
+    z-index:999;
+
+}
+
+.paper {
+    position: relative;
+    width: 720px;
+    max-width: 90%;
+    /* Fix: Limit height and allow internal scrolling so text doesn't cut off */
+    max-height: 85vh;
+    overflow-y: auto;
+
+    background: #fffdf8;
+    border-radius: 28px;
+    border: 5px solid #ffd7e8;
+    padding: 70px 50px; /* Adjusted padding slightly for better fit */
+    box-shadow: 0 30px 70px rgba(0,0,0,.18);
+    animation: paperPop .8s;
+}
+
+}
+
+.paper h1{
+
+    font-family:'Dancing Script',cursive;
+
+    color:#ff5d95;
+
+    font-size:62px;
+
+    text-align:center;
+
+    margin-bottom:30px;
+
+}
+
+.paper p{
+
+    font-size:22px;
+
+    line-height:1.9;
+
+    color:#555;
+
+    white-space:pre-line;
+
+}
+
+/* Cats */
+.cat {
+    position: absolute;
+    width: 95px;
+    z-index: 10; /* Ensures they sit on top of the border */
+}
+
+.leftCat {
+    top: -50px; /* Adjusted to sit nicely on the top left rim */
+    left: 10px;
+}
+
+.rightCat {
+    top: -50px; /* Adjusted to sit nicely on the top right rim */
+    right: 10px;
+    transform: scaleX(-1);
+}
+@keyframes paperPop{
+
+0%{
+
+transform:translateY(120px) scale(.7);
+
+opacity:0;
+
+}
+
+100%{
+
+transform:translateY(0) scale(1);
+
+opacity:1;
+
+}
+
+}
