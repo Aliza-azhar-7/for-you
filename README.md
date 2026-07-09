@@ -24,5 +24,5 @@ To change the message that types out , write whatever you want to:
 2. Locate the `message` variable:
    ```javascript
    const message = `type the message here`;
-##Author
-Aliza azhar khan
+## Author
+Aliza Azhar Khan
