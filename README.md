@@ -1,5 +1,6 @@
 # Its named as For You 🌸
-basically a wishing or cute letter web you can use to send wishes or special notes to anyone :)
+Basically,Its a wishing cute letter web that you can use to send wishes or special notes to anyone :)
+
 A beautiful, interactive web project featuring a typewriter typing effect and a hidden letter experience. 
 
 ## ✨ Features
